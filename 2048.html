@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2048</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="2048.css">
+</head>
+<body>
+	<header>
+		<h1>Описание игры</h1>
+		<p>В игре вам нужно, двигая клетки с числами, получить число 2048 в одной из клеток. После каждого успешного движения в свободной клетке появляется число 2 или 4. Двигать числа можно при помощи мыши, нажимая на управляющие стрелки, или при помощи клавиатуры (стрелками либо WASD - старая геймерская привычка)</p>
+	</header>
+	<main>
+		<div class="table">
+			<div class="row">
+				<div class="row1 col1 cell" data-id="1" data-column="1" data-row="1"></div>
+				<div class="row1 col2 cell" data-id="2" data-column="2" data-row="1"></div>
+				<div class="row1 col3 cell" data-id="3" data-column="3" data-row="1"></div>
+				<div class="row1 col4 cell" data-id="4" data-column="4" data-row="1"></div>
+			</div>
+			<div class="row">
+				<div class="row2 col1 cell" data-id="5" data-column="1" data-row="2"></div>
+				<div class="row2 col2 cell" data-id="6" data-column="2" data-row="2"></div>
+				<div class="row2 col3 cell" data-id="7" data-column="3" data-row="2"></div>
+				<div class="row2 col4 cell" data-id="8" data-column="4" data-row="2"></div>
+			</div>
+			<div class="row">
+				<div class="row3 col1 cell" data-id="9" data-column="1" data-row="3"></div>
+				<div class="row3 col2 cell" data-id="10" data-column="2" data-row="3"></div>
+				<div class="row3 col3 cell" data-id="11" data-column="3" data-row="3"></div>
+				<div class="row3 col4 cell" data-id="12" data-column="4" data-row="3"></div>
+			</div>
+			<div class="row">
+				<div class="row4 col1 cell" data-id="13" data-column="1" data-row="4"></div>
+				<div class="row4 col2 cell" data-id="14" data-column="2" data-row="4"></div>
+				<div class="row4 col3 cell" data-id="15" data-column="3" data-row="4"></div>
+				<div class="row4 col4 cell" data-id="16" data-column="4" data-row="4"></div>
+			</div>
+		</div>
+		<input type="button" name="newGame" onclick="newGame()" value="New game">
+		<section id="arrows">
+			<a id="moveLeft" onclick="moveNumbers('left')"></a>
+			<a id="moveRight" onclick="moveNumbers('right')"></a>
+			<a id="moveUp" onclick="moveNumbers('up')"></a>
+			<a id="moveDown" onclick="moveNumbers('down')"></a>
+		</section>
+	</main>
+	<script type="text/javascript" src="2048.js"></script>
+</body>
+</html>
