@@ -87,54 +87,41 @@ function moveNumbers(direction){
 	var isExistMove = true;
 	var isMove = 0;
 	var dimension = document.getElementsByClassName('row').length;
-	switch (direction){
-		case 'left':
-			for (var i = 0; i < dimension; i++){
-				var cells = document.querySelectorAll('DIV[data-row="' + (i + 1) + '"]');
-				isMove = moveNotEmptyArrayElementsBegin(cells, isMove); 
-				isMove = sumArrayElementsBegin(cells, isMove);
-			}
-			break;
-		case 'right':
-			for (var i = 0; i < dimension; i++){
-				var cellsReverse = document.querySelectorAll('DIV[data-row="' + (i + 1) + '"]');
-				var cells = [];
-				for (var j = cellsReverse.length - 1; j >= 0; j--){
-					cells.push(cellsReverse[j]);
-				}
-				isMove = moveNotEmptyArrayElementsBegin(cells, isMove); 
-				isMove = sumArrayElementsBegin(cells, isMove);
-			}
-			break;
-		case 'up':
-			for (var i = 0; i < dimension; i++){
-				var cells = document.querySelectorAll('DIV[data-column="' + (i + 1) + '"]');
-				isMove = moveNotEmptyArrayElementsBegin(cells, isMove); 
-				isMove = sumArrayElementsBegin(cells, isMove);
-			}
-			break;
-		case 'down':
-			for (var i = 0; i < dimension; i++){
-				var cellsReverse = document.querySelectorAll('DIV[data-column="' + (i + 1) + '"]');
-				var cells = [];
-				for (var j = cellsReverse.length - 1; j >= 0; j--){
-					cells.push(cellsReverse[j]);
-				}
-				isMove = moveNotEmptyArrayElementsBegin(cells, isMove); 
-				isMove = sumArrayElementsBegin(cells, isMove);
-			}
-			break;
-	};
+	for (var i = 0; i < dimension; i++){
+		switch (direction){
+			case 'left':
+					var cells = document.querySelectorAll('DIV[data-row="' + (i + 1) + '"]');
+				break;
+			case 'right':
+					var cells = [].slice.call(document.querySelectorAll('DIV[data-row="' + (i + 1) + '"]'));
+					cells.reverse();
+				break;
+			case 'up':
+					var cells = document.querySelectorAll('DIV[data-column="' + (i + 1) + '"]');
+				break;
+			case 'down':
+					var cells = [].slice.call(document.querySelectorAll('DIV[data-column="' + (i + 1) + '"]'));
+					cells.reverse();
+				break;
+		};
+		isMove = moveNotEmptyArrayElementsBegin(cells, isMove); 
+		isMove = sumArrayElementsBegin(cells, isMove);
+	}
 	if (isMove > 0){
 		insertRandNumber();
 	}
 	changeColors(colorsArray, allCells);
 	if (emptyCell(allCells).length == 0){
 		if (!checkMove(dimension)){
-			isBeginNewGame('loose');
+			setTimeout(function(){
+				isBeginNewGame('loose');
+			}, 0);
 		}
 	}
-	var win = isBeginNewGame(isWin());
+	setTimeout(function(){
+		isBeginNewGame(isWin());
+	}, 0);
+
 }
 //сдвиг элементов массива на один шаг в начало, начиная с позиции number
 function moveArrayElementsBegin(array, number){
