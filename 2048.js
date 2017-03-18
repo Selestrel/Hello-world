@@ -1,5 +1,5 @@
 var colorsArray = {
-	2:'linear-gradient(to right, #EE82EE, #FFEEFF, #EE82EE)',
+	2:'linear-gradient(to right, green, lightgreen, green)',
 	4:'linear-gradient(to top, #DDA0DD, #FFEEFF, #DDA0DD)',
 	8:'linear-gradient(to right, #DA70D6, #FFEEFF, #DA70D6',
 	16:'linear-gradient(to top, #BA55D3, #FFEEFF, #BA55D3',
